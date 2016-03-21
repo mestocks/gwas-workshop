@@ -3,6 +3,7 @@
 ####Michael Stocks
 
 By the end of this tutorial you should be able to:
+
 1. Perform a genome-wide association study
 2. Add covariates to the model
 3. Account for multiple testing
