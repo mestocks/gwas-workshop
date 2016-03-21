@@ -35,6 +35,7 @@ descriptives.trait(ruff.data)
 descriptives.trait(ruff.data)
 ```
 
+First let's test for markers associated with the *Faeder* morph, indicated by the phenotype "fo":
 ```{r }
 fo.MLR <- mlreg(fo ~ 1, data = ruff.data, trait = "binomial")
 ```
