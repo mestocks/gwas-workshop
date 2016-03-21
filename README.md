@@ -65,6 +65,11 @@ fo.QT1k <- qtscore(fo ~ 1, data = ruff.data, trait = "binomial", times = 1000)
 ```
 Using the `summary()` command, you can see that the *p*-values in the `P1df` column have been adjusted to account for multiple testing and indicate the proportion of permutations yielding a more significant *p*-value than that observed in the real data. 
 
+##Population stratification
+
+Structure can create artificial associations between markers and phenotypes. In natural populations, there are a number of ways to use non-causal markers to account for any population stratification. We will look at two methods:
+
+1. The first method uses all markers in the dataset to measure the level of statification within the population. This value (known as &lambda)
 
 ##References
 
