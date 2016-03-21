@@ -1,6 +1,8 @@
+*Population Genomics Workshop 2016, University of Sheffield*
+
 #Genomewide association studies in structured populations
 ###Michael Stocks
-Population Genomics Workshop 2016, University of Sheffield
+
 
 ##Importing and exploring the data
 <p align="center">
