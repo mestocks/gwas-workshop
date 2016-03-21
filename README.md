@@ -9,6 +9,10 @@ By the end of this tutorial you should be able to:
 * Account for multiple testing
 * Correct for population stratification
 
+##Getting started
+
+If you type `ls` and enter in the terminal then you should see two files. `gen_RUFF_qc.raw` was generated from `VCF` format using `plink` and contains the genotypic information for each marker and individual. `phe_RUFF.txt` is a tab-delimited file containing the phenotypes for each individual.
+
 ##Importing and exploring the data
 <p align="center">
 <img src="https://github.com/mspopgen/genomics-workshop2016/blob/master/ruff-sys.png" width="640" align="center">
@@ -42,3 +46,5 @@ summary(fo.MLR, top = 30)
 ```{r }
 sum(fo.MLR[, "P1df"] <= 0.0001)
 ```
+##References
+
