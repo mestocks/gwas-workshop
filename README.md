@@ -39,19 +39,21 @@ See [*Küpper et al. (2016)*](http://www.nature.com/ng/journal/v48/n1/full/ng.34
 
 
 
-
+##Perform an association study
 
 First let's perform a GWAS on the *Faeder* morph. That is, are there markers associated with an individual being either a *Faeder* or a non-*Faeder* (i.e. a *Satellite* or *Independent*) morph? This trait is indicated by the phenotype `fo` and is a categorical trait, so we can start by using a logistic regression:
 ```{r }
 fo.MLR <- mlreg(fo ~ 1, data = ruff.data, trait = "binomial")
 ```
-
+This then gives us a *p*-value for association between each marker and the `fo` trait. A breakdown of the 10 most significant associations can be produced using the `summary()` command:
 ```{r }
 summary(fo.MLR)
-
+```
+You can also increase the number of the markers displayed in the summary:
+```{r }
 summary(fo.MLR, top = 30)
 ```
-
+This gives information about the location (`Chromosome`, `Position`) of each marker and the significance of the association (`P1df`). We will deal with the `Pc1df` column in the population stratification section (more details in the columns are given at [http://www.genabel.org/GenABEL/scan.gwaa-class.html](http://www.genabel.org/GenABEL/scan.gwaa-class.html)). You can also check how many markers are below a certain significance threshold:
 ```{r }
 sum(fo.MLR[, "P1df"] <= 0.0001)
 ```
