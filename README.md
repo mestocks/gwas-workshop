@@ -13,7 +13,7 @@ By the end of this tutorial you should be able to:
 
 If you type `ls` and enter in the terminal then you should see two files. `gen_RUFF_qc.raw` was generated from `VCF` format using `plink` and contains the genotypic information for each marker and individual. `phe_RUFF.txt` is a tab-delimited file containing the phenotypes for each individual.
 
-Type `R` and enter to begin an `R` session. You can exit at any time by type `q()` to get back to the `unix` environment.
+Type `R` and enter to begin an `R` session. You can exit at any time by typing `q()` to get back to the `unix` environment.
 
 ##Importing and exploring the data
 <p align="center">
