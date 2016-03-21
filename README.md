@@ -53,9 +53,18 @@ You can also increase the number of the markers displayed in the summary:
 ```{r }
 summary(fo.MLR, top = 30)
 ```
-This gives information about the location (`Chromosome`, `Position`) of each marker and the significance of the association (`P1df`). We will deal with the `Pc1df` column in the population stratification section (more details in the columns are given at [http://www.genabel.org/GenABEL/scan.gwaa-class.html](http://www.genabel.org/GenABEL/scan.gwaa-class.html)). You can also check how many markers are below a certain significance threshold:
+This gives information about the location (`Chromosome`, `Position`) of each marker and the significance of the association (`P1df`). We will deal with the `Pc1df` column in the population stratification section (more details on the columns are given at [http://www.genabel.org/GenABEL/scan.gwaa-class.html](http://www.genabel.org/GenABEL/scan.gwaa-class.html)). You can also check how many markers are below a certain significance threshold:
 ```{r }
 sum(fo.MLR[, "P1df"] <= 0.0001)
 ```
+##Correct for multiple tests
+
+Due to the number of tests being performed (equal to the number of markers), we would expect some significant results by chance alone. There are numerous ways to do this (e.g. Bonferroni correction, FDR etc...), one which is to use permutations of the data to find a signifance cut-off threshold. This randomly shuffles the phenotypic values with respect to the individual genotypes at each marker. This creates independence between the trait and the markers and can be used to generate a suitable significance threshold. This can be done using the `qtscore` function, using the `times` option to specify 1000 permutations:
+```{r }
+fo.QT1k <- qtscore(fo ~ 1, data = ruff.data, trait = "binomial", times = 1000)
+```
+Using the `summary()` command, you can see that the *p*-values in the `P1df` column have been adjusted to account for multiple testing.
+
+
 ##References
 
