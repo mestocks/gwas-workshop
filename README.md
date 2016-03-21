@@ -1,6 +1,5 @@
-# genomics-workshop2016
-
-
+#Population Genomics Workshop 2016
+#
 
 ##Importing and exploring the data
 <p align="center">
