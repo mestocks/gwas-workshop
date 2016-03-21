@@ -4,10 +4,10 @@
 
 By the end of this tutorial you should be able to:
 
-1. Perform a genome-wide association study
-2. Add covariates to the model
-3. Account for multiple testing
-4. Correct for population stratification
+* Perform a genome-wide association study
+* Add covariates to the model
+* Account for multiple testing
+* Correct for population stratification
 
 ##Importing and exploring the data
 <p align="center">
