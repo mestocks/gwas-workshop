@@ -2,6 +2,10 @@
 
 
 
+##Importing and exploring the data
+
+See [*Küpper et al. (2016)*](http://www.nature.com/ng/journal/v48/n1/full/ng.3443.html), and it's sister publication [*Lamichhaney et al. (2016)*](http://www.nature.com/ng/journal/v48/n1/full/ng.3430.html), for more details.
+
 ```{r }
 library(GenABEL)
 ```
