@@ -4,9 +4,7 @@
 
 ##Importing and exploring the data
 
-![alt text][ruff-sys]
-
-[ruff-sys]: https://github.com/mspopgen/genomics-workshop2016/ruff-sys.png "Logo Title Text 2"
+![alt text](https://github.com/mspopgen/genomics-workshop2016/ruff-sys.png "Logo Title Text 2")
 
 See [*Küpper et al. (2016)*](http://www.nature.com/ng/journal/v48/n1/full/ng.3443.html), and it's sister publication [*Lamichhaney et al. (2016)*](http://www.nature.com/ng/journal/v48/n1/full/ng.3430.html), for more details.
 
