@@ -36,7 +36,7 @@ descriptives.trait(ruff.data)
 ```
 
 
-First let's perform a GWAS on the *Faeder* morph. That is, are there markers associated with an individual being either a *Faeder* morph or a non-*Faeder* (i.e. a *Satellite* or *Independent*) morph? These are indicated by the phenotype "*fo*":
+First let's perform a GWAS on the *Faeder* morph. That is, are there markers associated with an individual being either a *Faeder* or a non-*Faeder* (i.e. a *Satellite* or *Independent*) morph? These are indicated by the phenotype `fo`:
 ```{r }
 fo.MLR <- mlreg(fo ~ 1, data = ruff.data, trait = "binomial")
 ```
