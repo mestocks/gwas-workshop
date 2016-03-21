@@ -63,7 +63,7 @@ Due to the number of tests being performed (equal to the number of markers), we 
 ```{r }
 fo.QT1k <- qtscore(fo ~ 1, data = ruff.data, trait = "binomial", times = 1000)
 ```
-Using the `summary()` command, you can see that the *p*-values in the `P1df` column have been adjusted to account for multiple testing.
+Using the `summary()` command, you can see that the *p*-values in the `P1df` column have been adjusted to account for multiple testing and indicate the proportion of permutations yielding a more significant *p*-value than that observed in the real data. 
 
 
 ##References
