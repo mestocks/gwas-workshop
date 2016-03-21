@@ -16,27 +16,32 @@ If you type `ls` and enter in the terminal then you should see two files. `gen_R
 Type `R` and enter to begin an `R` session. You can exit at any time by typing `q()` to get back to the `unix` environment.
 
 ##Importing and exploring the data
+Load the library:
+```{r }
+library(GenABEL)
+```
+Now import the data and assign the object to the variable `ruff.data`:
+```{r }
+ruff.data <- load.gwaa.data(phe = "gen_RUFF_qc.raw", gen = "phe_RUFF.raw", force = T)
+```
+A brief overview of the data are given for the traits or the markers using the following two commands:
+```{r }
+descriptives.trait(ruff.data)
+descriptives.marker(ruff.data)
+```
+
 <p align="center">
 <img src="https://github.com/mspopgen/genomics-workshop2016/blob/master/ruff-sys.png" width="640" align="center">
 </p>
 
 See [*Küpper et al. (2016)*](http://www.nature.com/ng/journal/v48/n1/full/ng.3443.html), and it's sister publication [*Lamichhaney et al. (2016)*](http://www.nature.com/ng/journal/v48/n1/full/ng.3430.html), for more details.
 
-```{r }
-library(GenABEL)
-```
-
-```{r }
-ruff.data <- load.gwaa.data(phe = "gen_RUFF_qc.raw", gen = "phe_RUFF.raw", force = T)
-```
-
-```{r }
-descriptives.trait(ruff.data)
-descriptives.trait(ruff.data)
-```
 
 
-First let's perform a GWAS on the *Faeder* morph. That is, are there markers associated with an individual being either a *Faeder* or a non-*Faeder* (i.e. a *Satellite* or *Independent*) morph? This categorical trait is indicated by the phenotype `fo`:
+
+
+
+First let's perform a GWAS on the *Faeder* morph. That is, are there markers associated with an individual being either a *Faeder* or a non-*Faeder* (i.e. a *Satellite* or *Independent*) morph? This trait is indicated by the phenotype `fo` and is a categorical trait, so we can start by using a logistic regression:
 ```{r }
 fo.MLR <- mlreg(fo ~ 1, data = ruff.data, trait = "binomial")
 ```
