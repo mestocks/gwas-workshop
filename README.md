@@ -1,7 +1,12 @@
 *Population Genomics Workshop 2016, University of Sheffield*
-#Genomewide association studies in structured populations
+#Genome-wide association studies in structured populations
 ####Michael Stocks
 
+By the end of this tutorial you should be able to:
+1. Perform a genome-wide association study
+2. Add covariates to the model
+3. Account for multiple testing
+4. Correct for population stratification
 
 ##Importing and exploring the data
 <p align="center">
