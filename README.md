@@ -69,7 +69,7 @@ Using the `summary()` command, you can see that the *p*-values in the `P1df` col
 
 Structure can create artificial associations between markers and phenotypes. In natural populations, there are a number of ways to use non-causal markers to account for any population stratification. We will look at two methods:
 
-1. The first method uses all markers in the dataset to measure the level of statification within the population. This value (known as &lambda)
+1. The first method uses all markers in the dataset to measure the level of statification within the population. This value (known as $$&lambda$$, $$\lambda$$, $$lambda$$)
 
 ##References
 
