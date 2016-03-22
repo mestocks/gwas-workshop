@@ -48,11 +48,11 @@ The data consists of 41 male ruff individuals. The phenotypic data is contained 
 <img src="https://github.com/mspopgen/genomics-workshop2016/blob/master/ruff-sys.png" width="640" align="center">
 </p>
 
-The genotypic data consists of markers derived from RAD sequencing, and have been mapped to the ruff draft genome. See [*Küpper et al. (2016)*](http://www.nature.com/ng/journal/v48/n1/full/ng.3443.html), and it's sister publication [*Lamichhaney et al. (2016)*](http://www.nature.com/ng/journal/v48/n1/full/ng.3430.html), for more details. After filtering we now have a dataset of 383,514 snps with which to look for associations with our traits interest. We will start with some simple tests of association on two traits: `fo` and `si`. `fo` indicates whether an individual is a *Faeder* or non-*Faeder* morph, and `si` indicates whether an individual is a *Satellite* or *Independent* morph. 
+The genotypic data consists of markers derived from RAD sequencing, and have been mapped to the ruff draft genome. See [*Küpper et al. (2016)*](http://www.nature.com/ng/journal/v48/n1/full/ng.3443.html), and it's sister publication [*Lamichhaney et al. (2016)*](http://www.nature.com/ng/journal/v48/n1/full/ng.3430.html), for more details. After filtering we now have a dataset of 383,514 snps with which to look for associations with our traits interest. 
 
 ##Perform an association study
 
-First let's perform a GWAS on the *Faeder* morph. That is, are there markers associated with an individual being either a *Faeder* or a non-*Faeder* (i.e. a *Satellite* or *Independent*) morph? This trait is indicated by the phenotype `fo` and is a categorical trait, so we can start by using a logistic regression:
+We will start with some simple tests of association on just one of the traits, `fo`, which indicates whether an individual is a *Faeder* or non-*Faeder* morph. That is, are there markers associated with an individual being either a *Faeder* or a non-*Faeder* (i.e. a *Satellite* or *Independent*) morph? This trait is indicated by the phenotype `fo` and is a categorical trait, so we can start by using a logistic regression:
 ```{r }
 fo.MLR <- mlreg(fo ~ 1, data = ruff.data, trait = "binomial")
 ```
@@ -68,8 +68,6 @@ This gives information about the location (`Chromosome`, `Position`) of each mar
 ```{r }
 sum(fo.MLR[, "P1df"] <= 0.0001)
 ```
-***si trait***
-
 ##Correct for multiple tests
 
 Due to the number of tests being performed (equal to the number of markers), we would expect some significant results by chance alone. There are numerous ways to do this (e.g. Bonferroni correction, FDR etc...), one which is to use permutations of the data to find a signifance cut-off threshold. This randomly shuffles the phenotypic values with respect to the individual genotypes at each marker. This creates independence between the trait and the markers and can be used to generate a suitable significance threshold. This can be done using the `qtscore` function, using the `times` option to specify 100 permutations:
