@@ -28,6 +28,7 @@ ruff.data <- load.gwaa.data(phe = "gen_RUFF_qc.raw", gen = "phe_RUFF.raw", force
 qc <- check.marker(ruff.data, callrate = 0.25, p.level = 1e-5, perid.call = 0, extr.perid.call = 0, ibs.mrk = -1)
 ruff.clean <- ruff.data[qc$idok, qc$snpok]
 ```
+We will not go into the details of these filters but more information is available [here](http://genabel.org/GenABEL/check.marker.html).
 
 A brief overview of the data are given for the traits or the markers using the following two commands:
 ```{r }
