@@ -24,9 +24,9 @@ Now import the data and assign the object to the variable `ruff.data`:
 ```{r }
 ruff.data <- load.gwaa.data(phe = "phe_RUFF.txt", gen = "gen_RUFF_qc.raw", force = T)
 ```
-We'll now do some basic filtering to remove uninformative markers and decrease the size of the dataset:
+We'll now do some basic filtering to remove uninformative markers and to decrease the size of the dataset:
 ```{r }
-qc <- check.marker(ruff.data, callrate = 0.25, p.level = 1e-5, perid.call = 0, extr.perid.call = 0, ibs.mrk = -1)
+qc <- check.marker(ruff.data, callrate = 0.66, p.level = 1e-5, perid.call = 0, extr.perid.call = 0, ibs.mrk = -1)
 ruff.clean <- ruff.data[qc$idok, qc$snpok]
 ```
 We will not go into the details of these filters but more information is available [here](http://genabel.org/GenABEL/check.marker.html).
