@@ -2,6 +2,8 @@
 #Genome-wide association studies in structured populations
 ####Michael Stocks
 
+**general intro**
+
 By the end of this tutorial you should be able to:
 
 * Perform a genome-wide association study
@@ -10,6 +12,8 @@ By the end of this tutorial you should be able to:
 * Correct for population stratification
 
 ##Getting started
+
+**make better**
 
 If you type `ls` and enter in the terminal then you should see two files. `gen_RUFF_qc.raw` was generated from `VCF` format using `plink` and contains the genotypic information for each marker and individual. `phe_RUFF.txt` is a tab-delimited file containing the phenotypes for each individual.
 
@@ -62,11 +66,13 @@ This gives information about the location (`Chromosome`, `Position`) of each mar
 ```{r }
 sum(fo.MLR[, "P1df"] <= 0.0001)
 ```
+***si trait***
+
 ##Correct for multiple tests
 
-Due to the number of tests being performed (equal to the number of markers), we would expect some significant results by chance alone. There are numerous ways to do this (e.g. Bonferroni correction, FDR etc...), one which is to use permutations of the data to find a signifance cut-off threshold. This randomly shuffles the phenotypic values with respect to the individual genotypes at each marker. This creates independence between the trait and the markers and can be used to generate a suitable significance threshold. This can be done using the `qtscore` function, using the `times` option to specify 1000 permutations:
+Due to the number of tests being performed (equal to the number of markers), we would expect some significant results by chance alone. There are numerous ways to do this (e.g. Bonferroni correction, FDR etc...), one which is to use permutations of the data to find a signifance cut-off threshold. This randomly shuffles the phenotypic values with respect to the individual genotypes at each marker. This creates independence between the trait and the markers and can be used to generate a suitable significance threshold. This can be done using the `qtscore` function, using the `times` option to specify 100 permutations:
 ```{r }
-fo.QT1k <- qtscore(fo ~ 1, data = ruff.data, trait = "binomial", times = 1000)
+fo.QT1k <- qtscore(fo ~ 1, data = ruff.data, trait = "binomial", times = 100)
 ```
 Using the `summary()` command, you can see that the *p*-values in the `P1df` column have been adjusted to account for multiple testing and indicate the proportion of permutations yielding a more significant *p*-value than that observed in the real data. 
 
@@ -74,7 +80,7 @@ Using the `summary()` command, you can see that the *p*-values in the `P1df` col
 
 Structure can create artificial associations between markers and phenotypes. In natural populations, there are a number of ways to use non-causal markers to account for any population stratification. We will look at two methods:
 
-1. The first method uses all markers in the dataset to measure the level of statification within the population. This value (known as $$&lambda$$, $$\lambda$$, $$lambda$$) is then used to correct the *p*-values from the association test. The value of $$lamdba$$ can be obtained with:
+1. The first method uses all markers in the dataset to measure the level of statification within the population. This value (often known as lambda) is then used to correct the *p*-values from the association test. The value of lamdba can be obtained with:
 ```{r }
 lambda(ruff.MLR)
 ```
@@ -91,6 +97,16 @@ And add these as covariates in the model:
 ```{r }
 fo.QTibs <- qtscore(fo ~ mds[, 1] + mds[, 2], data = ruff.clean, trait.type = "binomial")
 ```
+***and plot again***
 
 ##References
 
+Aulchenko, Yurii S., Stephan Ripke, Aaron Isaacs, and Cornelia M. Van Duijn. "GenABEL: an R library for genome-wide association analysis." Bioinformatics 23, no. 10 (2007): 1294-1296.
+
+Küpper, Clemens, Michael Stocks, Judith E. Risse, Natalie dos Remedios, Lindsay L. Farrell, Susan B. McRae, Tawna C. Morgan et al. "A supergene determines highly divergent male reproductive morphs in the ruff." Nature genetics (2015).
+
+Lamichhaney, Sangeet, Guangyi Fan, Fredrik Widemo, Ulrika Gunnarsson, Doreen Schwochow Thalmann, Marc P. Hoeppner, Susanne Kerje et al. "Structural genomic changes underlie alternative reproductive strategies in the ruff (Philomachus pugnax)." Nature genetics 48, no. 1 (2016): 84-88.
+
+Lank, David B., Constance M. Smith, Olivier Hanotte, Terry Burke, and Fred Cooke. "Genetic polymorphism for alternative mating behaviour in lekking male ruff Philomachus pugnax." Nature (1995).
+
+Lank, David B., Lindsay L. Farrell, Terry Burke, Theunis Piersma, and Susan B. McRae. "A dominant allele controls development into female mimic male and diminutive female ruffs." Biology letters 9, no. 6 (2013): 20130653.
