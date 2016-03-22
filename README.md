@@ -93,7 +93,7 @@ And add these as covariates in the model:
 ```{r }
 fo.QTibs <- qtscore(fo ~ mds[, 1] + mds[, 2], data = ruff.clean, trait.type = "binomial")
 ```
-We can now plot these values as before.
+As before, you can view the *p*-values using the `summary()` command, and produce Manhattan plots using `plot()`.
 
 ##References
 
