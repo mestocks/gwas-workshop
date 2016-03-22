@@ -11,8 +11,7 @@ The aim of this practical is to identify markers associated with male mating beh
 
 ##Getting started
 
-**make better**
-
+First, create a directory in your home folder and copy the data into this directory:
 ```bash
 mkdir $HOME/genabel
 cp /data/bo1mesx/workshop/* $HOME/genabel
