@@ -77,6 +77,12 @@ Using the `summary()` command, you can see that the *p*-values in the `P1df` col
 Structure can create artificial associations between markers and phenotypes. In natural populations, there are a number of ways to use non-causal markers to account for any population stratification. We will look at two methods:
 
 1. The first method uses all markers in the dataset to measure the level of statification within the population. This value (known as $$&lambda$$, $$\lambda$$, $$lambda$$)
+2. 
 
+```{r }
+gkin <- ibs(ruff.clean, snps = sample(autosomal(ruff.clean), 1000, replace = FALSE), weight = "freq")
+mds <- cmdscale(as.dist(0.5 - gkin))
+fo.QTibs <- qtscore(fo ~ mds[, 1] + mds[, 2], data = ruff.clean, trait.type = "binomial")
+```
 ##References
 
