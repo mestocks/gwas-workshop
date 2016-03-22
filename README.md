@@ -101,12 +101,12 @@ fo.QTibs <- qtscore(fo ~ mds[, 1] + mds[, 2], data = ruff.clean, trait.type = "b
 
 ##References
 
-Aulchenko, Yurii S., Stephan Ripke, Aaron Isaacs, and Cornelia M. Van Duijn. "GenABEL: an R library for genome-wide association analysis." Bioinformatics 23, no. 10 (2007): 1294-1296.
+Aulchenko, Yurii S., Stephan Ripke, Aaron Isaacs, and Cornelia M. Van Duijn. "GenABEL: an R library for genome-wide association analysis." *Bioinformatics* 23, no. 10 (2007): 1294-1296.
 
-Küpper, Clemens, Michael Stocks, Judith E. Risse, Natalie dos Remedios, Lindsay L. Farrell, Susan B. McRae, Tawna C. Morgan et al. "A supergene determines highly divergent male reproductive morphs in the ruff." Nature genetics (2015).
+Küpper, Clemens, Michael Stocks, Judith E. Risse, Natalie dos Remedios, Lindsay L. Farrell, Susan B. McRae, Tawna C. Morgan et al. "A supergene determines highly divergent male reproductive morphs in the ruff." *Nature genetics* (2016).
 
-Lamichhaney, Sangeet, Guangyi Fan, Fredrik Widemo, Ulrika Gunnarsson, Doreen Schwochow Thalmann, Marc P. Hoeppner, Susanne Kerje et al. "Structural genomic changes underlie alternative reproductive strategies in the ruff (Philomachus pugnax)." Nature genetics 48, no. 1 (2016): 84-88.
+Lamichhaney, Sangeet, Guangyi Fan, Fredrik Widemo, Ulrika Gunnarsson, Doreen Schwochow Thalmann, Marc P. Hoeppner, Susanne Kerje et al. "Structural genomic changes underlie alternative reproductive strategies in the ruff (Philomachus pugnax)." *Nature genetics* 48, no. 1 (2016): 84-88.
 
-Lank, David B., Constance M. Smith, Olivier Hanotte, Terry Burke, and Fred Cooke. "Genetic polymorphism for alternative mating behaviour in lekking male ruff Philomachus pugnax." Nature (1995).
+Lank, David B., Constance M. Smith, Olivier Hanotte, Terry Burke, and Fred Cooke. "Genetic polymorphism for alternative mating behaviour in lekking male ruff Philomachus pugnax." *Nature* (1995).
 
-Lank, David B., Lindsay L. Farrell, Terry Burke, Theunis Piersma, and Susan B. McRae. "A dominant allele controls development into female mimic male and diminutive female ruffs." Biology letters 9, no. 6 (2013): 20130653.
+Lank, David B., Lindsay L. Farrell, Terry Burke, Theunis Piersma, and Susan B. McRae. "A dominant allele controls development into female mimic male and diminutive female ruffs." *Biology letters* 9, no. 6 (2013): 20130653.
