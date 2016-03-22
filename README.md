@@ -13,6 +13,13 @@ The aim of this practical is to identify markers associated with male mating beh
 
 **make better**
 
+```bash
+mkdir $HOME/genabel
+cd $HOME/genabel
+git clone https://github.com/mspopgen/genomics-workshop2016
+cd genomics-workshop2016
+```
+
 If you type `ls` and enter in the terminal then you should see two files. `gen_RUFF_qc.raw` was generated from `VCF` format using `plink` and contains the genotypic information for each marker and individual. `phe_RUFF.txt` is a tab-delimited file containing the phenotypes for each individual.
 
 Type `R` and enter to begin an `R` session. You can exit at any time by typing `q()` to get back to the `unix` environment.
