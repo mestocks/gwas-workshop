@@ -4,6 +4,8 @@
 
 **general intro**
 
+[GenABEL](http://genabel.org/)
+
 By the end of this tutorial you should be able to:
 
 * Perform a genome-wide association study
