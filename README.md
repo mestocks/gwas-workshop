@@ -48,7 +48,7 @@ The data consists of 41 male ruff individuals. The phenotypic data is contained 
 <img src="https://github.com/mspopgen/genomics-workshop2016/blob/master/ruff-sys.png" width="640" align="center">
 </p>
 
-The genotypic data consists of markers derived from RAD sequencing, and have been mapped to the ruff draft genome. See [*Küpper et al. (2016)*](http://www.nature.com/ng/journal/v48/n1/full/ng.3443.html), and it's sister publication [*Lamichhaney et al. (2016)*](http://www.nature.com/ng/journal/v48/n1/full/ng.3430.html), for more details. After filtering we now have a dataset of 383,514 snps with which to look for associations with our traits interest. 
+The genotypic data consists of markers derived from RAD sequencing, and have been mapped to the ruff draft genome. See [*Küpper et al. (2016)*](http://www.nature.com/ng/journal/v48/n1/full/ng.3443.html), and it's sister publication [*Lamichhaney et al. (2016)*](http://www.nature.com/ng/journal/v48/n1/full/ng.3430.html), for more details. After filtering we now have a dataset of 383,514 snps with which to look for associations with the trait of interest. 
 
 ##Perform an association study
 
