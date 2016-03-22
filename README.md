@@ -48,7 +48,7 @@ The genotypic data consists of markers derived from RAD sequencing, and have bee
 
 ##Perform an association study
 
-We will start with some simple tests of association on just one of the traits, `fo`, which indicates whether an individual is a *Faeder* or non-*Faeder* morph. That is, are there markers associated with an individual being either a *Faeder* or a non-*Faeder* (i.e. a *Satellite* or *Independent*) morph? This trait is indicated by the phenotype `fo` and is a categorical trait, so we can start by using a logistic regression:
+We will start with some simple tests of association the *Faeder* morph trait. That is, are there markers associated with an individual being either a *Faeder* or a non-*Faeder* (i.e. a *Satellite* or *Independent*) morph? This trait is indicated by the phenotype `fo` and is a categorical trait, so we can start by using a logistic regression:
 ```{r }
 fo.MLR <- mlreg(fo ~ 1, data = ruff.data, trait = "binomial")
 ```
@@ -66,7 +66,7 @@ sum(fo.MLR[, "P1df"] <= 0.0001)
 ```
 ##Correct for multiple tests
 
-Due to the number of tests being performed (equal to the number of markers), we would expect some significant results by chance alone. There are numerous ways to do this (e.g. Bonferroni correction, FDR etc...), one which is to use permutations of the data to find a signifance cut-off threshold. This randomly shuffles the phenotypic values with respect to the individual genotypes at each marker. This creates independence between the trait and the markers and can be used to generate a suitable significance threshold. This can be done using the `qtscore` function, using the `times` option to specify 100 permutations:
+Due to the number of tests being performed (equal to the number of markers), we would expect some significant results by chance alone. There are numerous ways to do this (e.g. Bonferroni correction, FDR etc...), one of which is to use permutations of the data to find a signifance cut-off threshold. This randomly shuffles the phenotypic values with respect to the individual genotypes at each marker. This creates independence between the trait and the markers and can be used to generate a suitable significance threshold. This can be done using the `qtscore` function, using the `times` option to specify 100 permutations:
 ```{r }
 fo.QT1k <- qtscore(fo ~ 1, data = ruff.data, trait = "binomial", times = 100)
 ```
@@ -93,7 +93,7 @@ And add these as covariates in the model:
 ```{r }
 fo.QTibs <- qtscore(fo ~ mds[, 1] + mds[, 2], data = ruff.clean, trait.type = "binomial")
 ```
-***and plot again***
+We can now plot these values as before.
 
 ##References
 
