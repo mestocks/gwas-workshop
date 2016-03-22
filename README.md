@@ -24,6 +24,7 @@ Now import the data and assign the object to the variable `ruff.data`:
 ```{r }
 ruff.data <- load.gwaa.data(phe = "gen_RUFF_qc.raw", gen = "phe_RUFF.raw", force = T)
 ```
+We'll now do some basic filtering to remove uninformative markers and decrease the size of the dataset:
 ```{r }
 qc <- check.marker(ruff.data, callrate = 0.25, p.level = 1e-5, perid.call = 0, extr.perid.call = 0, ibs.mrk = -1)
 ruff.clean <- ruff.data[qc$idok, qc$snpok]
@@ -32,8 +33,8 @@ We will not go into the details of these filters but more information is availab
 
 A brief overview of the data are given for the traits or the markers using the following two commands:
 ```{r }
-descriptives.trait(ruff.data)
-descriptives.marker(ruff.data)
+descriptives.trait(ruff.clean)
+descriptives.marker(ruff.clean)
 ```
 
 <p align="center">
