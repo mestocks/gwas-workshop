@@ -22,7 +22,7 @@ library(GenABEL)
 ```
 Now import the data and assign the object to the variable `ruff.data`:
 ```{r }
-ruff.data <- load.gwaa.data(phe = "gen_RUFF_qc.raw", gen = "phe_RUFF.raw", force = T)
+ruff.data <- load.gwaa.data(phe = "phe_RUFF.txt", gen = "gen_RUFF_qc.raw", force = T)
 ```
 We'll now do some basic filtering to remove uninformative markers and decrease the size of the dataset:
 ```{r }
@@ -36,6 +36,7 @@ A brief overview of the data are given for the traits or the markers using the f
 descriptives.trait(ruff.clean)
 descriptives.marker(ruff.clean)
 ```
+The data consists of 41 male ruff individuals. The phenotypic data is contained in a data frame given by the `phdata` method. Using the command `table(ruff.clean@phdata[, "morph"])`, you can see that of the three different morphs: 21 are *Independent*, 10 are *Satellite* and 10 are *Faeder*. Each of these morphs has a number of distinct physiological and behavioural phenotypes that have been shown through breeding experiments to be Mendelian inherited traits Lank *et al.* (([1995](http://www.nature.com/nature/journal/v378/n6552/abs/378059a0.html), [2013](http://rsbl.royalsocietypublishing.org/content/9/6/20130653)). 
 
 <p align="center">
 <img src="https://github.com/mspopgen/genomics-workshop2016/blob/master/ruff-sys.png" width="640" align="center">
