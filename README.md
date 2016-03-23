@@ -69,6 +69,12 @@ This gives information about the location (`Chromosome`, `Position`) of each mar
 ```{r }
 sum(fo.MLR[, "P1df"] <= 0.0001)
 ```
+We can also produce a Manhattan plot to better understand our data:
+```{r }
+plot(fo.MLR, col = c("black", "black"), ystart = 1)
+```
+This plots the `-log10(p)` values against the base-pair position of each marker on each chromosome (or contig in this case). Larger values mean that the association is more significant.
+
 ##Correct for multiple tests
 
 Due to the number of tests being performed (equal to the number of markers), we would expect some significant results by chance alone. There are numerous ways to do this (e.g. Bonferroni correction, FDR etc...), one of which is to use permutations of the data to find a signifance cut-off threshold. This randomly shuffles the phenotypic values with respect to the individual genotypes at each marker. This creates independence between the trait and the markers and can be used to generate a suitable significance threshold. This can be done using the `qtscore` function, using the `times` option to specify 100 permutations:
@@ -89,11 +95,11 @@ A value of 1 indicates no stratification, and everything above that means that t
 
 2) Another method is to first estimate identity-by-state (IBS) and kinship information from the marker dataset, perform multidimensional scaling on these IBS coefficients, and then use these as covariants in the model. First, get the kinship matrix:
 ```{r }
-ruff.kin <- ibs(ruff.clean)
+gkin <- ibs(ruff.clean)
 ```
 Then perform the multidimensional scaling:
 ```{r }
-ruff.mds <- cmdscale(as.dist(0.5 - ruff.kin))
+mds <- cmdscale(as.dist(0.5 - gkin))
 ```
 And add these as covariates in the model:
 ```{r }
