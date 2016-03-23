@@ -53,25 +53,25 @@ The genotypic data consists of markers derived from RAD sequencing, and have bee
 
 ##Perform an association study
 
-We will start with some simple tests of association the *Faeder* morph trait. That is, are there markers associated with an individual being either a *Faeder* or a non-*Faeder* (i.e. a *Satellite* or *Independent*) morph? This trait is indicated by the phenotype `fo` and is a categorical trait, so we can start by using a logistic regression:
+We will start with some simple tests of association the *Faeder* morph trait. That is, are there markers associated with an individual being either a *Faeder* or a non-*Faeder* (i.e. a *Satellite* or *Independent*) morph? This trait is indicated by the phenotype `fo` and is a categorical trait. We will start by using the fast score test method:
 ```{r }
-fo.MLR <- mlreg(fo ~ 1, data = ruff.clean, trait = "binomial")
+fo.QT <- qtscore(fo ~ 1, data = ruff.clean, trait = "binomial")
 ```
 This then gives us a *p*-value for association between each marker and the `fo` trait. A breakdown of the 10 most significant associations can be produced using the `summary()` command:
 ```{r }
-summary(fo.MLR)
+summary(fo.QT)
 ```
 You can also increase the number of markers displayed in the summary:
 ```{r }
-summary(fo.MLR, top = 30)
+summary(fo.QT, top = 30)
 ```
 This gives information about the location (`Chromosome`, `Position`) of each marker and the significance of the association (`P1df`). We will deal with the `Pc1df` column in the population stratification section (more details on the columns are given at [http://www.genabel.org/GenABEL/scan.gwaa-class.html](http://www.genabel.org/GenABEL/scan.gwaa-class.html)). You can also check how many markers are below a certain significance threshold:
 ```{r }
-sum(fo.MLR[, "P1df"] <= 0.0001)
+sum(fo.QT[, "P1df"] <= 0.0001)
 ```
 We can also produce a Manhattan plot to better understand our data:
 ```{r }
-plot(fo.MLR, col = c("black", "black"), ystart = 1)
+plot(fo.QT, col = c("black", "black"), ystart = 1)
 ```
 This plots the `-log10(p)` values against the base-pair position of each marker on each chromosome (or contig in this case). Larger values mean that the association is more significant.
 
@@ -89,7 +89,7 @@ Structure can create artificial associations between markers and phenotypes. In 
 
 1) The first method uses all markers in the dataset to measure the level of statification within the population. This value (often known as lambda) is then used to correct the *p*-values from the association test. The value of lamdba can be obtained with:
 ```{r }
-lambda(fo.MLR)
+lambda(fo.QT)
 ```
 A value of 1 indicates no stratification, and everything above that means that there may be some form of structure in the population. The corrected *p*-values are given by the `summary()` command under the `Pc1df` heading.
 
