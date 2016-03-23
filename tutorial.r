@@ -21,7 +21,7 @@ dev.off()
 fo.QT100 <- qtscore(fo ~ 1, data = ruff.clean, trait = "binomial", times = 100)
 summary(fo.QT100)
 
-lambda(ruff.MLR)
+lambda(fo.MLR)
 gkin <- ibs(ruff.clean)
 mds <- cmdscale(as.dist(0.5 - gkin))
 fo.QTibs <- qtscore(fo ~ mds[, 1] + mds[, 2], data = ruff.clean, trait.type = "binomial")
