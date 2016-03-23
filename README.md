@@ -69,11 +69,17 @@ This gives information about the location (`Chromosome`, `Position`) of each mar
 ```{r }
 sum(fo.QT[, "P1df"] <= 0.0001)
 ```
-We can also produce a Manhattan plot to better understand our data:
+We can also produce a Manhattan plot and write it to a pdf to better understand our data:
 ```{r }
+pdf("fo_qt_manhattan.pdf", width = 12, height = 7)
 plot(fo.QT, col = c("black", "black"), ystart = 1)
+dev.off()
 ```
-This plots the `-log10(p)` values against the base-pair position of each marker on each chromosome (or contig in this case). Larger values mean that the association is more significant.
+Now, exit `R` using the `q()` command (saying `yes` to save the workspace) and type `ls`, you should see a pdf file in your current working directory. To view it in the Windows environment, email to yourself using the following command, replacing `user@email.com` with your email address:
+```bash
+echo "Text body" | mail -s "QT plot" -a fo_qt_manhattan.pdf user@email.com
+```
+The manhattan plot shows the `-log10(p)` values against the base-pair position of each marker on each chromosome (or contig in this case). Larger values mean that the association is more significant.
 
 ##Correct for multiple tests
 
