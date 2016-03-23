@@ -55,7 +55,7 @@ The genotypic data consists of markers derived from RAD sequencing, and have bee
 
 We will start with some simple tests of association the *Faeder* morph trait. That is, are there markers associated with an individual being either a *Faeder* or a non-*Faeder* (i.e. a *Satellite* or *Independent*) morph? This trait is indicated by the phenotype `fo` and is a categorical trait, so we can start by using a logistic regression:
 ```{r }
-fo.MLR <- mlreg(fo ~ 1, data = ruff.data, trait = "binomial")
+fo.MLR <- mlreg(fo ~ 1, data = ruff.clean, trait = "binomial")
 ```
 This then gives us a *p*-value for association between each marker and the `fo` trait. A breakdown of the 10 most significant associations can be produced using the `summary()` command:
 ```{r }
@@ -79,7 +79,7 @@ This plots the `-log10(p)` values against the base-pair position of each marker 
 
 Due to the number of tests being performed (equal to the number of markers), we would expect some significant results by chance alone. There are numerous ways to do this (e.g. Bonferroni correction, FDR etc...), one of which is to use permutations of the data to find a signifance cut-off threshold. This randomly shuffles the phenotypic values with respect to the individual genotypes at each marker. This creates independence between the trait and the markers and can be used to generate a suitable significance threshold. This can be done using the `qtscore` function, using the `times` option to specify 100 permutations:
 ```{r }
-fo.QT100 <- qtscore(fo ~ 1, data = ruff.data, trait = "binomial", times = 100)
+fo.QT100 <- qtscore(fo ~ 1, data = ruff.clean, trait = "binomial", times = 100)
 ```
 Using the `summary()` command, you can see that the *p*-values in the `P1df` column have been adjusted to account for multiple testing and indicate the proportion of permutations yielding a more significant *p*-value than that observed in the real data. 
 
