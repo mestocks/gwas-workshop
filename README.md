@@ -89,7 +89,7 @@ Structure can create artificial associations between markers and phenotypes. In 
 
 1) The first method uses all markers in the dataset to measure the level of statification within the population. This value (often known as lambda) is then used to correct the *p*-values from the association test. The value of lamdba can be obtained with:
 ```{r }
-lambda(ruff.MLR)
+lambda(fo.MLR)
 ```
 A value of 1 indicates no stratification, and everything above that means that there may be some form of structure in the population. The corrected *p*-values are given by the `summary()` command under the `Pc1df` heading.
 
