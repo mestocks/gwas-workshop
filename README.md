@@ -81,12 +81,13 @@ Using the `summary()` command, you can see that the *p*-values in the `P1df` col
 
 Structure can create artificial associations between markers and phenotypes. In natural populations, there are a number of ways to use non-causal markers to account for any population stratification. We will look at two methods:
 
-1. The first method uses all markers in the dataset to measure the level of statification within the population. This value (often known as lambda) is then used to correct the *p*-values from the association test. The value of lamdba can be obtained with:
+1) The first method uses all markers in the dataset to measure the level of statification within the population. This value (often known as lambda) is then used to correct the *p*-values from the association test. The value of lamdba can be obtained with:
 ```{r }
 lambda(ruff.MLR)
 ```
 A value of 1 indicates no stratification, and everything above that means that there may be some form of structure in the population. The corrected *p*-values are given by the `summary()` command under the `Pc1df` heading.
-2. Another method is to first estimate identity-by-state (IBS) and kinship information from the marker dataset, perform multidimensional scaling on these IBS coefficients, and then use these as covariants in the model. First, get the kinship matrix:
+
+2) Another method is to first estimate identity-by-state (IBS) and kinship information from the marker dataset, perform multidimensional scaling on these IBS coefficients, and then use these as covariants in the model. First, get the kinship matrix:
 ```{r }
 ruff.kin <- ibs(ruff.clean)
 ```
