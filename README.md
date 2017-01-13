@@ -1,4 +1,4 @@
-*Population Genomics Workshop 2016, University of Sheffield*
+*Population Genomics Workshop 2017, University of Sheffield*
 #Genome-wide association studies in structured populations
 ####Michael Stocks
 
@@ -11,12 +11,11 @@ The aim of this practical is to identify markers associated with male mating beh
 
 ##Getting started
 
-First, create a directory in your home folder and copy the data into this directory:
+
 ```bash
-mkdir $HOME/genabel
-cp /data/bo1mesx/workshop/* $HOME/genabel
-cd $HOME/genabel
+git clone https://github.com/mspopgen/gwas-workshop
 ```
+
 
 If you type `ls` and enter in the terminal then you should see two files. `gen_RUFF_qc.raw` was generated from `VCF` format using `plink` and contains the genotypic information for each marker and individual. `phe_RUFF.txt` is a tab-delimited file containing the phenotypes for each individual.
 
