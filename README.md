@@ -22,7 +22,7 @@ cd gwas-workshop
 gunzip gen_RUFF_qc.raw.gz
 ```
 
-If you type `ls` and 'ENTER' in the terminal then you should see two files. `gen_RUFF_qc.raw` was generated from `VCF` format using `plink` and contains the genotypic information for each marker and individual. `phe_RUFF.txt` is a tab-delimited file containing the phenotypes for each individual.
+If you type `ls` and `ENTER` in the terminal then you should see two files. `gen_RUFF_qc.raw` was generated from `VCF` format using `plink` and contains the genotypic information for each marker and individual. `phe_RUFF.txt` is a tab-delimited file containing the phenotypes for each individual.
 
 Type `R` and enter to begin an `R` session. You can exit at any time by typing `q()` to get back to the `unix` environment.
 
