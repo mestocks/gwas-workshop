@@ -11,11 +11,16 @@ The aim of this practical is to identify markers associated with male mating beh
 
 ##Getting started
 
-
+Inside your home directly type the following to download the tutorial and data:
 ```bash
 git clone https://github.com/mspopgen/gwas-workshop
 ```
 
+This will create a file called `gwas-workshop`. Move into the directory and decompress the data:
+```bash
+cd gwas-workshop
+gunzip gen_RUFF_qc.raw.gz
+```
 
 If you type `ls` and enter in the terminal then you should see two files. `gen_RUFF_qc.raw` was generated from `VCF` format using `plink` and contains the genotypic information for each marker and individual. `phe_RUFF.txt` is a tab-delimited file containing the phenotypes for each individual.
 
