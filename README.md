@@ -27,7 +27,11 @@ If you type `ls` and `ENTER` in the terminal then you should see two files. `gen
 Type `R` and enter to begin an `R` session. You can exit at any time by typing `q()` to get back to the `unix` environment.
 
 ##Importing and exploring the data
-Load the library:
+Install GenABEL:
+```{r }
+install.packages("GenABEL")
+```
+If asked about setting up a local library, answer `Yes` and accept the suggested location. Now load the library:
 ```{r }
 library(GenABEL)
 ```
