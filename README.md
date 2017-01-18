@@ -83,7 +83,7 @@ Now, exit `R` using the `q()` command (saying `yes` to save the workspace) and t
 ```bash
 echo "Text body" | mail -s "QT plot" -a fo_qt_manhattan.pdf user@email.com
 ```
-The manhattan plot shows the `-log10(p)` values against the base-pair position of each marker on each chromosome (or contig in this case). Larger values mean that the association is more significant.
+The manhattan plot shows the `-log10(p)` values against the base-pair position of each marker on each chromosome (or contig in this case). Larger values mean that the association is more significant. Type `R` to enter the `R` environment again and then reload GenABEL once again with `library(GenABEL)` (the rest of your data will still be loaded).
 
 ##Correct for multiple tests
 
